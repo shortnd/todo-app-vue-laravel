@@ -1,0 +1,26 @@
+<template>
+  <div>
+      <div>
+          <h1>Todo List</h1>
+          <!-- <div>
+              <input v-model="newTodo" placeholder="Add Todo">
+              <button @click="add" :disabled="newTodo.length === 0">Add</button>
+          </div> -->
+      </div>
+      <div>
+          <!-- <div v-for="(todo, index) in todos" :key="todo.id">
+              <p>{{todo.text}}</p>
+              <button @click="updateStatus(todo)" v-text="todo.finished ? 'Not Done' : 'Done'"></button>
+              <button @click="remove(index)">Remove</button>
+          </div> -->
+      </div>
+  </div>
+</template>
+
+<script>
+export default {
+}
+</script>
+
+<style lang="css">
+</style>

@@ -11,7 +11,7 @@
     </head>
     <body>
         <div id="app">
-            <example-component></example-component>
+            <todo-component></todo-component>
         </div>
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
