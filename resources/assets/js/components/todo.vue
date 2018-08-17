@@ -34,7 +34,7 @@ export default {
                 finished: false
             }
 
-            this.todo.push(todo);
+            this.todos.unshift(todo);
 
             this.newTodo = '';
             this.baseId++;
