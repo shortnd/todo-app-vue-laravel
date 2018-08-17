@@ -10,7 +10,7 @@
         <title>Laravel</title>
     </head>
     <body>
-        <div id="app">
+        <div class="h-screen flex items-center justify-center bg-teal-lightest font-sans" id="app">
             <todo-component></todo-component>
         </div>
         <!-- Scripts -->

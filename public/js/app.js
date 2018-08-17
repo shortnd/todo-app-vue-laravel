@@ -47359,6 +47359,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -47399,56 +47402,35 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", [
-      _c("h1", [_vm._v("Todo List")]),
-      _vm._v(" "),
-      _c("div", [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.newTodo,
-              expression: "newTodo"
-            }
-          ],
-          attrs: { placeholder: "Add Todo" },
-          domProps: { value: _vm.newTodo },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.newTodo = $event.target.value
-            }
-          }
-        }),
+  return _c(
+    "div",
+    {
+      staticClass: "bg-white rounded shadow p-6 m-4 w-full lg:w-3/4 lg:mx-w-lg"
+    },
+    [
+      _c("div", { staticClass: "mb-4" }, [
+        _c("h1", { staticClass: "text-grey-darkest" }, [_vm._v("Todo List")]),
         _vm._v(" "),
-        _c(
-          "button",
-          {
-            attrs: { disabled: _vm.newTodo.length === 0 },
-            on: { click: _vm.add }
-          },
-          [_vm._v("Add")]
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      _vm._l(_vm.todos, function(todo, index) {
-        return _c("div", { key: todo.id }, [
-          _c("p", [_vm._v(_vm._s(todo.text))]),
-          _vm._v(" "),
-          _c("button", {
-            domProps: {
-              textContent: _vm._s(todo.finished ? "Not Done" : "Done")
-            },
+        _c("div", { staticClass: "flex mt-4" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.newTodo,
+                expression: "newTodo"
+              }
+            ],
+            staticClass:
+              "shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-gray-darker",
+            attrs: { placeholder: "Add Todo" },
+            domProps: { value: _vm.newTodo },
             on: {
-              click: function($event) {
-                _vm.updateStatus(todo)
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.newTodo = $event.target.value
               }
             }
           }),
@@ -47456,18 +47438,91 @@ var render = function() {
           _c(
             "button",
             {
-              on: {
-                click: function($event) {
-                  _vm.remove(index)
-                }
-              }
+              staticClass:
+                "flex-no-shrink p-2 border-2 rounded text-teal border-teal hover:text-white hover:bg-teal",
+              attrs: { disabled: _vm.newTodo.length === 0 },
+              on: { click: _vm.add }
             },
-            [_vm._v("Remove")]
+            [_vm._v("Add")]
           )
         ])
-      })
-    )
-  ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _vm._l(_vm.todos, function(todo, index) {
+            return _c(
+              "div",
+              { key: todo.id, staticClass: "flex mb-4 items-center" },
+              [
+                _c(
+                  "p",
+                  {
+                    staticClass: "w-full",
+                    class: todo.finished
+                      ? "line-through text-green"
+                      : "text-grey-darkest"
+                  },
+                  [_vm._v(_vm._s(todo.text))]
+                ),
+                _vm._v(" "),
+                _c("button", {
+                  staticClass:
+                    "flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white",
+                  class: todo.finished
+                    ? "text-grey border-grey hover:bg-grey"
+                    : "text-green border-green hover:bg-green",
+                  domProps: {
+                    textContent: _vm._s(todo.finished ? "Not Done" : "Done")
+                  },
+                  on: {
+                    click: function($event) {
+                      _vm.updateStatus(todo)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-white hover:bg-red",
+                    on: {
+                      click: function($event) {
+                        _vm.remove(index)
+                      }
+                    }
+                  },
+                  [_vm._v("Remove")]
+                )
+              ]
+            )
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.todos.length === 0,
+                  expression: "todos.length === 0"
+                }
+              ]
+            },
+            [
+              _c("p", { staticClass: "w-full text-center text-grey-dark" }, [
+                _vm._v("There are no todos")
+              ])
+            ]
+          )
+        ],
+        2
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
